@@ -1,0 +1,3 @@
+
+# Dynamics parameters
+mu 3.986e5

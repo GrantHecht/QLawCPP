@@ -1,0 +1,46 @@
+// Spacecraft parameters
+probdata.thrust = 2.0 / 1000.0*probdata.TU*probdata.TU / probdata.DU; //thrust in kg*DU/TU^2
+probdata.Isp = 3100.0 / probdata.TU; //TU's
+
+// initial coe's
+double sma = 7000.0 / probdata.DU; //DU's
+double e = 0.01;
+double inc = 28.5*(probdata.APPLE_PI / 180.0); //radians
+double ape = 0.0*(probdata.APPLE_PI / 180.0); //radians
+double ran = 0.0*(probdata.APPLE_PI / 180.0); //radians
+double tru = 0.0*(probdata.APPLE_PI / 180.0); //radians
+double mass = 3000.0; //kg
+
+
+// target coe's
+probdata.sma_t = 26562.0 / probdata.DU; //DU's
+probdata.e_t = 0.74105;
+probdata.inc_t = 63.4*(probdata.APPLE_PI / 180); //radians
+probdata.ape_t = -90.0*(probdata.APPLE_PI / 180);  //radians
+probdata.ran_t = 0.0*(probdata.APPLE_PI / 180); //radians
+
+
+// Convergence tolerances
+probdata.sma_tol = 5.0 / probdata.DU; //DU's
+probdata.e_tol = 0.001;
+probdata.inc_tol = 0.5*probdata.APPLE_PI / 180.0; //radians
+probdata.ape_tol = 0.5*probdata.APPLE_PI / 180.0; //radians
+probdata.ran_tol = 0.5*probdata.APPLE_PI / 180.0; //radians
+
+
+
+// Q-law gains and parameters
+// These require tuning
+// Suggest NSGAII
+probdata.m_petro = 3.0;
+probdata.n_petro = 4.0;
+probdata.r_petro = 2.0;
+probdata.b_petro = 0.01;
+probdata.k_petro = 1000.0;
+probdata.Wp = 1.0;
+probdata.rpermin = 6578.0 / probdata.DU;
+probdata.Wsma = 1.0;
+probdata.We = 1.0;
+probdata.Winc = 1.0;
+probdata.Wape = 1.0;
+probdata.Wran = 1.0; 
