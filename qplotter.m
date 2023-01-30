@@ -10,15 +10,15 @@ clc
 % Simulation parameters
 
 %is the output in canonical units or mks? 0:mks 1:canonical
-canonical_units = 0;
+canonical_units = 1;
 %central body selection, 0:Earth 1:Vesta 2:A small body
 central_body = 0;
 
 %Parameters for Earth or Vesta
 if (central_body == 0 && canonical_units == 1)
-    mu = 1.0;
-    DU = 6371.0;
-    TU = 805.4572472296184;
+    mu = 0.05238592807594226;
+    DU = 384400.0;
+    TU = 86400.0;
     length_units = 'DU';
     body_title = 'Earth';
 
@@ -52,10 +52,9 @@ elseif (central_body == 2 && canonical_units == 0)
 end
 
 % Extract COE data from file
-filestring = ['.\qlaw_output.txt'];
+filestring = 'qlaw_output.txt';
 fileptr = fopen(filestring);
 data = textscan(fileptr,'%f %f %f %f %f %f %f %f','headerlines',2);
-%data = textscan(fileptr,'%f %f %f %f %f %f %f %f');
 
 p = data{1};
 e = data{2};
@@ -79,8 +78,8 @@ sma = p./(1.0 - e.*e);
 time = time * TU;
 
 % Convert from COE's to cartesian state
-r = sma.*(1.0 - e.*e)./(1.0 + e.*cos(tru));
-v = sqrt(2*mu./r - mu./sma);
+r = DU*sma.*(1.0 - e.*e)./(1.0 + e.*cos(tru));
+v = (DU/TU)*sqrt(2*mu./r - mu./sma);
 h = sqrt(mu*sma.*(1.0 - e.*e));
 
 x = r.*(cos(tru+ape).*cos(ran) - sin(tru+ape).*cos(inc).*sin(ran));
@@ -123,7 +122,7 @@ elseif central_body == 2
 end
 
 hold on;
-traj = plot3(x,y,z,'.r','MarkerSize',2);
+traj = plot3(x,y,z,'r.','MarkerSize',2);
 xlabel(['x (',length_units,')']);
 ylabel(['y (',length_units,')']);
 zlabel(['z (',length_units,')']);

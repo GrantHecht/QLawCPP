@@ -1,3 +1,69 @@
 
 # Dynamics parameters
-mu 3.986e5
+mu  0.05238592807594226 
+DU  384400.0
+TU  86400.0
+
+# Spacecraft parameters
+thrust          0.31158027168893276
+Isp             1800.0
+initial_mass    1200.0
+
+# Initial orbital elements
+sma0            24363.99407
+e0              0.7306
+inc0            28.5
+ape0            0.0
+ran0            0.0
+tru0            0.0
+
+# Specify targeting info
+sma_switch      1
+e_switch        1
+inc_switch      1 
+ape_switch      0 
+ran_switch      0
+
+# Final target elements
+sma_t           42165.0
+e_t             0.01
+inc_t           0.01
+ape_t           0.0
+ran_t           0.0
+
+# Target element tolerances
+sma_tol         10.0
+e_tol           0.001
+inc_tol         0.01
+ape_tol         0.01
+ran_tol         0.01
+
+# QLaw gains 
+m_petro         3
+n_petro         24
+r_petro         2
+b_petro         0.01 
+k_petro         1000
+c_petro         1
+Wp              0
+Wc              1 
+rpermin         6375.0
+rapomax         50000.0
+Wsma            1.193
+We              2.402
+Winc            8.999
+Wape            0.0
+Wran            0.0
+
+# Effectivity options
+effectivity     1 
+abs_effectivity 0
+rel_effectivity 1
+eta_rel_tol     0.0151
+eta_abs_tol     0.0
+effectivity_sample  5.0
+
+# Integrator settings
+Lf              72000.0
+stepsize        1.0
+t0              0.0
