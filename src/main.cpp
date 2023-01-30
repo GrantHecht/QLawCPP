@@ -125,8 +125,6 @@ int main(int argc, char* argv[])
 	// scale effectivity sample size
 	probdata.effectivity_sample = probdata.effectivity_sample*probdata.APPLE_PI / 180.0;
 	
-
-
 	//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	// PERFORM FEEDBACK CONTROL SIMULATION
 	//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -134,6 +132,8 @@ int main(int argc, char* argv[])
 	// The final value of the true longitude is a bit arbitrary
 	// Set it to a "large enough" value and let the convergence check stop the simulation
 	double L;
+    probdata.Lf = probdata.Lf * probdata.APPLE_PI / 180.0;
+    probdata.stepsize = probdata.stepsize * probdata.APPLE_PI / 180.0;
 	double L_bin = 0.0;
 	probdata.nseg = (probdata.Lf - L0) / probdata.stepsize;
 	probdata.ns = 7;
