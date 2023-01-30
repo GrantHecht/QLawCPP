@@ -25,7 +25,7 @@ int main(int argc, char* argv[])
 	bool options_read = false;
 
 	if (argc == 1)
-		options_file = "options.txt";
+		options_file = "C:\\Users\\Grant\\Documents\\Projects\\QLawCPP\\examples\\GTO-GEO\\options.txt";
 	else if (argc == 2)
 		options_file.assign(argv[1]);
 
