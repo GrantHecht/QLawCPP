@@ -40,7 +40,7 @@ ran_tol         0.01
 
 # QLaw gains 
 m_petro         3
-n_petro         24
+n_petro         4
 r_petro         2
 b_petro         0.01 
 k_petro         1000
